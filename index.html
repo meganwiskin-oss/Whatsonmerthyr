@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>What's on Merthyr - Discover Local Businesses & Events</title>
-  <meta name="description" content="Discover local businesses, restaurants, cafés, bars, activities, events and attractions in Merthyr Tydfil. Connect with independent businesses and explore what Merthyr has to offer.">
+  <title>What's on Merthyr — Free Things To Do, Events, Walks & Community</title>
+  <meta name="description" content="Discover free things to do in Merthyr Tydfil — walks, events, history, community support, hidden gems and local businesses. For locals and visitors alike.">
   <link rel="stylesheet" href="styles.css">
   <script defer src="script.js"></script>
 </head>
@@ -13,13 +13,15 @@
     <header>
       <div class="container">
         <div class="header-content">
-          <div class="logo">
-            What's on <span>Merthyr</span>
-          </div>
+          <div class="logo">What's on <span>Merthyr</span></div>
           <button class="nav-toggle" id="navToggle">☰</button>
           <nav id="mainNav">
             <ul>
               <li><a href="index.html" class="active">Home</a></li>
+              <li><a href="#walks">Walks</a></li>
+              <li><a href="#history">History</a></li>
+              <li><a href="#whats-on">What's On</a></li>
+              <li><a href="#community">Community</a></li>
               <li><a href="pricing.html">Pricing</a></li>
               <li><a href="#contact" class="btn btn-primary btn-small">Get Started</a></li>
             </ul>
@@ -29,41 +31,208 @@
     </header>
 
     <main>
-      <!-- Hero Section -->
+      <!-- Hero -->
       <section class="hero">
         <div class="container">
           <div class="hero-content">
-            <h1>Discover What's on in Merthyr Tydfil</h1>
-            <p>Your guide to local businesses, restaurants, events, activities and attractions. For locals who want to support their community and visitors looking for authentic experiences.</p>
-            <div class="button-group">
-              <a href="pricing.html" class="btn btn-primary">View Pricing</a>
-              <a href="#contact" class="btn btn-secondary">List Your Business</a>
+            <h1>What do you want to do today?</h1>
+            <p>Free things. Hidden gems. Walks. Events. Community. Food. Adventure. All around Merthyr.</p>
+            <div class="hero-search">
+              <input type="text" placeholder="Search Merthyr…" id="searchInput">
+            </div>
+            <div class="quick-filters" id="quickFilters">
+              <span class="filter-chip active" data-filter="all"><span class="chip-icon">✨</span> All</span>
+              <span class="filter-chip" data-filter="free"><span class="chip-icon">💚</span> Free</span>
+              <span class="filter-chip" data-filter="family"><span class="chip-icon">👨‍👩‍👧</span> Family</span>
+              <span class="filter-chip" data-filter="friends"><span class="chip-icon">👥</span> Friends</span>
+              <span class="filter-chip" data-filter="couples"><span class="chip-icon">💕</span> Couples</span>
+              <span class="filter-chip" data-filter="solo"><span class="chip-icon">🧘</span> Solo</span>
+              <span class="filter-chip" data-filter="outdoors"><span class="chip-icon">🌲</span> Outdoors</span>
+              <span class="filter-chip" data-filter="indoors"><span class="chip-icon">🏛️</span> Indoors</span>
+              <span class="filter-chip" data-filter="events"><span class="chip-icon">🎉</span> Events</span>
+              <span class="filter-chip" data-filter="walks"><span class="chip-icon">🥾</span> Walks</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- For Everyone Section -->
-      <section class="features">
+      <!-- Free Today -->
+      <section class="section" id="free-today">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-icon">💚</span>
+            <h2>Free Today & This Week</h2>
+          </div>
+          <p style="margin-bottom: 1.5rem;">Free events and activities at Merthyr's libraries and community venues. <em>Refreshed regularly — always check with the venue before attending.</em></p>
+          <div class="cards-grid" id="eventsGrid"></div>
+        </div>
+      </section>
+
+      <!-- Walks & Wild Places -->
+      <section class="section section-alt" id="walks">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-icon">🥾</span>
+            <h2>Walks & Wild Places</h2>
+          </div>
+          <p style="margin-bottom: 1.5rem;">Free walks, trails and wild spaces around Merthyr Tydfil — from reservoir loops to woodland paths and heritage trails.</p>
+          <div class="cards-grid" id="walksGrid"></div>
+
+          <div class="safety-notice">
+            <h3>⚠️ Water & Heritage Safety</h3>
+            <p><strong>Water:</strong> Rivers, reservoirs and gorges may be cold, deep, fast or slippery. Do not encourage swimming unless specifically authorised and safe.</p>
+            <p><strong>Heritage:</strong> Do not climb ruins, viaducts, quarry faces or unstable masonry.</p>
+            <p><strong>Nature:</strong> Respect SSSI/protected habitats, wildlife, livestock and private land.</p>
+            <p><strong>Emergency:</strong> Call 999 for immediate danger.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Merthyr History -->
+      <section class="section" id="history">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-icon">📜</span>
+            <h2>Merthyr History</h2>
+          </div>
+          <p style="margin-bottom: 1.5rem;">Merthyr Tydfil grew from a small settlement into one of the world's major industrial towns during the Industrial Revolution. Ironworks such as Cyfarthfa, Dowlais, Penydarren and Plymouth drove rapid population growth and technological change.</p>
+          <div class="timeline" id="timeline"></div>
+
+          <h3 style="margin-top: 2.5rem; margin-bottom: 1rem;">Historic Free Sites</h3>
+          <div class="cards-grid" id="historicGrid"></div>
+        </div>
+      </section>
+
+      <!-- What's On -->
+      <section class="section section-alt" id="whats-on">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-icon">🎉</span>
+            <h2>What's On</h2>
+          </div>
+          <p style="margin-bottom: 1.5rem;">Special events, exhibitions and community groups in Merthyr Tydfil.</p>
+          <div class="cards-grid" id="whatsOnGrid"></div>
+        </div>
+      </section>
+
+      <!-- Community & Support -->
+      <section class="section" id="community">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-icon">🤝</span>
+            <h2>Community & Support</h2>
+          </div>
+          <p style="margin-bottom: 1.5rem;">I need help with…</p>
+          <div class="help-pathway">
+            <span class="help-chip">🍽️ Food</span>
+            <span class="help-chip">🏠 Warm Space</span>
+            <span class="help-chip">🏡 Housing</span>
+            <span class="help-chip">📋 Benefits</span>
+            <span class="help-chip">💬 Community Support</span>
+            <span class="help-chip">📚 Learning</span>
+            <span class="help-chip">🤲 Volunteering</span>
+          </div>
+
+          <div class="support-grid">
+            <div class="support-card">
+              <h3>🍽️ Merthyr Cynon Foodbank</h3>
+              <p>Voucher-based emergency food. Contact the foodbank or a referral agency (Citizens Advice, housing support, health visitors, social services, local charities). A voucher is exchanged for a minimum three-day emergency food parcel.</p>
+              <div class="contact-info">
+                <p><strong>Phone:</strong> 07427 537437</p>
+                <p><strong>Email:</strong> <a href="mailto:info@merthyrcynon.foodbank.org.uk">info@merthyrcynon.foodbank.org.uk</a></p>
+                <p><strong>Address:</strong> Gurnos Christian Centre, 26 Spruce Tree Grove, Merthyr Tydfil CF47 9AU</p>
+                <p><strong>Helpline:</strong> Help through Hardship 0808 208 2138 (Mon–Fri 9am–5pm)</p>
+                <p><a href="https://merthyrcynon.foodbank.org.uk/get-help/how-to-get-help/" target="_blank" rel="noopener">How to get help →</a></p>
+              </div>
+            </div>
+
+            <div class="support-card">
+              <h3>🏠 Warm Hubs</h3>
+              <p>Free warm spaces across Merthyr Tydfil during the cost-of-living period. Open to all.</p>
+              <div class="warm-hubs-list">
+                <span class="warm-hub-tag">Bedlinog Community Centre</span>
+                <span class="warm-hub-tag">Trelewis OAP</span>
+                <span class="warm-hub-tag">Bedlinog RFC</span>
+                <span class="warm-hub-tag">Gellideg Foundation Group</span>
+                <span class="warm-hub-tag">Dowlais Engine House</span>
+                <span class="warm-hub-tag">Dowlais Public Library</span>
+                <span class="warm-hub-tag">Aberfan Public Library</span>
+                <span class="warm-hub-tag">The Willows Centre Troedyrhiw</span>
+                <span class="warm-hub-tag">Merthyr Central Public Library</span>
+                <span class="warm-hub-tag">Hope Pantry at Hope Church</span>
+                <span class="warm-hub-tag">Twyn Community Hub</span>
+                <span class="warm-hub-tag">Treharris Community Centre</span>
+                <span class="warm-hub-tag">Cefn Coed Community Centre</span>
+              </div>
+              <p style="margin-top: 0.75rem;"><a href="https://www.merthyr.gov.uk/resident/cost-of-living-support-and-advice/warm-hub/" target="_blank" rel="noopener">Full warm hub list →</a></p>
+            </div>
+
+            <div class="support-card">
+              <h3>🧭 Compass Community Hub</h3>
+              <p>Free courses, workshops, community events and support for people aged 16+.</p>
+              <p><a href="https://www.merthyr.gov.uk/resident/compass-community-hub/who-are-we-and-what-do-we-do/" target="_blank" rel="noopener">Find out more →</a></p>
+            </div>
+
+            <div class="support-card">
+              <h3>🤝 VAMT (Voluntary Action)</h3>
+              <p>Free membership for local voluntary, community and third-sector organisations, with advertising, funding and volunteering support.</p>
+              <p><a href="https://vamt.net/membership/" target="_blank" rel="noopener">Join VAMT →</a></p>
+            </div>
+
+            <div class="support-card">
+              <h3>🤲 Foodbank Volunteering</h3>
+              <p>Roles include warehouse sorting, voucher coordination and helping at foodbank centres.</p>
+              <p><a href="https://merthyrcynon.foodbank.org.uk/give-help/volunteer/" target="_blank" rel="noopener">Volunteer →</a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Caves (Safety First) -->
+      <section class="section section-alt" id="caves">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-icon">🕳️</span>
+            <h2>Caves — Specialist Caving Only</h2>
+          </div>
+          <div class="cave-warning">
+            <h3>⚠️ SPECIALIST CAVING — NOT A CASUAL WALK-IN ATTRACTION</h3>
+            <p>These are specialist cave sites recorded in the Cambrian Cave Registry. They are <strong>not</strong> tourist attractions. Access requires appropriate equipment, competence and current access permission. Never explore alone. Always check weather, flooding and access before visiting.</p>
+          </div>
+          <div class="cards-grid" id="cavesGrid"></div>
+        </div>
+      </section>
+
+      <!-- Hidden Gems -->
+      <section class="section" id="hidden-gems">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-icon">💎</span>
+            <h2>Hidden Gems — Free Ideas</h2>
+          </div>
+          <p style="margin-bottom: 1.5rem;">Free things to do whether you're on your own, with a partner, or with friends.</p>
+          <div class="cards-grid" id="ideasGrid"></div>
+        </div>
+      </section>
+
+      <!-- For Everyone -->
+      <section class="section section-alt">
         <div class="container">
           <div class="section-title">
             <h2>Perfect for Everyone</h2>
             <p>Whether you're a local looking to support businesses in Merthyr or a visitor exploring what the town has to offer</p>
           </div>
-
           <div class="features-grid">
             <div class="feature-card">
               <div class="feature-icon">🏘️</div>
               <h3>For Local People</h3>
               <p>Support independent businesses you love. Discover local offers and discounts. Find community events and see what's happening near you.</p>
             </div>
-
             <div class="feature-card">
               <div class="feature-icon">👥</div>
               <h3>For Visitors</h3>
               <p>Explore authentic local experiences. Find restaurants, cafés, bars and activities. Discover hidden gems and make the most of Merthyr Tydfil.</p>
             </div>
-
             <div class="feature-card">
               <div class="feature-icon">🏪</div>
               <h3>For Businesses</h3>
@@ -73,8 +242,8 @@
         </div>
       </section>
 
-      <!-- What You Can Find -->
-      <section class="about">
+      <!-- Everything Merthyr -->
+      <section class="section">
         <div class="container">
           <div class="about-content">
             <div>
@@ -83,55 +252,13 @@
             <div class="about-text">
               <h2>Everything Merthyr Tydfil Has to Offer</h2>
               <p>Our app brings together all the best of what Merthyr Tydfil has to offer in one easy-to-use place:</p>
-              
               <div class="about-highlights">
-                <div class="highlight">
-                  <div class="highlight-icon">🍽️</div>
-                  <div class="highlight-text">
-                    <h4>Food & Drink</h4>
-                    <p>Restaurants, cafés, bars, and takeaways</p>
-                  </div>
-                </div>
-
-                <div class="highlight">
-                  <div class="highlight-icon">💈</div>
-                  <div class="highlight-text">
-                    <h4>Services</h4>
-                    <p>Hairdressers, beauty and holistic services</p>
-                  </div>
-                </div>
-
-                <div class="highlight">
-                  <div class="highlight-icon">🚴</div>
-                  <div class="highlight-text">
-                    <h4>Activities & Adventure</h4>
-                    <p>BikePark Wales, hiking routes, caves and trails</p>
-                  </div>
-                </div>
-
-                <div class="highlight">
-                  <div class="highlight-icon">🎉</div>
-                  <div class="highlight-text">
-                    <h4>Events & Community</h4>
-                    <p>Local events, charities and free community groups</p>
-                  </div>
-                </div>
-
-                <div class="highlight">
-                  <div class="highlight-icon">👨‍👩‍👧‍👦</div>
-                  <div class="highlight-text">
-                    <h4>Family & Couples</h4>
-                    <p>Activities for families and things to do as a couple</p>
-                  </div>
-                </div>
-
-                <div class="highlight">
-                  <div class="highlight-icon">🏞️</div>
-                  <div class="highlight-text">
-                    <h4>Attractions</h4>
-                    <p>Public parks, trails and local attractions</p>
-                  </div>
-                </div>
+                <div class="highlight"><div class="highlight-icon">🍽️</div><div class="highlight-text"><h4>Food & Drink</h4><p>Restaurants, cafés, bars, and takeaways</p></div></div>
+                <div class="highlight"><div class="highlight-icon">💈</div><div class="highlight-text"><h4>Services</h4><p>Hairdressers, beauty and holistic services</p></div></div>
+                <div class="highlight"><div class="highlight-icon">🚴</div><div class="highlight-text"><h4>Activities & Adventure</h4><p>BikePark Wales, hiking routes, caves and trails</p></div></div>
+                <div class="highlight"><div class="highlight-icon">🎉</div><div class="highlight-text"><h4>Events & Community</h4><p>Local events, charities and free community groups</p></div></div>
+                <div class="highlight"><div class="highlight-icon">👨‍👩‍👧‍👦</div><div class="highlight-text"><h4>Family & Couples</h4><p>Activities for families and things to do as a couple</p></div></div>
+                <div class="highlight"><div class="highlight-icon">🏞️</div><div class="highlight-text"><h4>Attractions</h4><p>Public parks, trails and local attractions</p></div></div>
               </div>
             </div>
           </div>
@@ -139,61 +266,33 @@
       </section>
 
       <!-- Business Benefits -->
-      <section class="features" style="background-color: var(--bg-white); border-top: 1px solid var(--border-color);">
+      <section class="section section-alt">
         <div class="container">
           <div class="section-title">
             <h2>Business Benefits</h2>
             <p>Your own dedicated space to reach customers</p>
           </div>
-
           <div class="features-grid">
-            <div class="feature-card">
-              <div class="feature-icon">📱</div>
-              <h3>Your Business Page</h3>
-              <p>Get your own dedicated page with your business name, description, photos, opening times, contact details and more.</p>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-icon">📍</div>
-              <h3>Easy to Find</h3>
-              <p>Appear in relevant categories so locals and visitors can easily discover you when looking for your services.</p>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-icon">💰</div>
-              <h3>Affordable</h3>
-              <p>Simple, affordable pricing starting from just £10 per month. No hidden fees or expensive advertising costs.</p>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-icon">🔗</div>
-              <h3>Stay Connected</h3>
-              <p>Link to your website, social media and booking systems. Share your latest offers and promotions easily.</p>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-icon">📢</div>
-              <h3>Promote Offers</h3>
-              <p>Showcase your current deals, discounts and special offers to attract new customers and build loyalty.</p>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-icon">⭐</div>
-              <h3>Get Featured</h3>
-              <p>Choose Featured listing for extra visibility and get shown first in your category to attract more customers.</p>
-            </div>
+            <div class="feature-card"><div class="feature-icon">📱</div><h3>Your Business Page</h3><p>Get your own dedicated page with your business name, description, photos, opening times, contact details and more.</p></div>
+            <div class="feature-card"><div class="feature-icon">📍</div><h3>Easy to Find</h3><p>Appear in relevant categories so locals and visitors can easily discover you when looking for your services.</p></div>
+            <div class="feature-card"><div class="feature-icon">💰</div><h3>Affordable</h3><p>Simple, affordable pricing starting from just £10 per month. No hidden fees or expensive advertising costs.</p></div>
+            <div class="feature-card"><div class="feature-icon">🔗</div><h3>Stay Connected</h3><p>Link to your website, social media and booking systems. Share your latest offers and promotions easily.</p></div>
+            <div class="feature-card"><div class="feature-icon">📢</div><h3>Promote Offers</h3><p>Showcase your current deals, discounts and special offers to attract new customers and build loyalty.</p></div>
+            <div class="feature-card"><div class="feature-icon">⭐</div><h3>Get Featured</h3><p>Choose Featured listing for extra visibility and get shown first in your category to attract more customers.</p></div>
           </div>
         </div>
       </section>
 
-      <!-- CTA Section -->
-      <section class="cta-section">
+      <!-- CTA -->
+      <section class="section">
         <div class="container">
-          <h2>Ready to Get Started?</h2>
-          <p>Whether you're a business looking to reach more customers or a community group wanting to share your mission, Merthyr Tydfil app can help.</p>
-          <div class="button-group">
-            <a href="pricing.html" class="btn btn-secondary">View Pricing</a>
-            <a href="#contact" class="btn btn-outline">Get in Touch</a>
+          <div class="cta-section">
+            <h2>Ready to Get Started?</h2>
+            <p>Whether you're a business looking to reach more customers or a community group wanting to share your mission, What's on Merthyr can help.</p>
+            <div class="button-group">
+              <a href="pricing.html" class="btn btn-secondary">View Pricing</a>
+              <a href="#contact" class="btn btn-outline" style="color:white;border-color:white;">Get in Touch</a>
+            </div>
           </div>
         </div>
       </section>
@@ -205,19 +304,19 @@
         <div class="footer-content">
           <div class="footer-section">
             <h4>What's on Merthyr</h4>
-            <p>Connecting locals and visitors with the best of Merthyr Tydfil's businesses, events and attractions.</p>
+            <p>Connecting locals and visitors with the best of Merthyr Tydfil's free things to do, events, walks, history, community support and local businesses.</p>
           </div>
-
           <div class="footer-section">
-            <h4>Quick Links</h4>
+            <h4>Explore</h4>
             <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="pricing.html">Pricing</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="#free-today">Free Today</a></li>
+              <li><a href="#walks">Walks & Wild Places</a></li>
+              <li><a href="#history">Merthyr History</a></li>
+              <li><a href="#whats-on">What's On</a></li>
+              <li><a href="#community">Community & Support</a></li>
+              <li><a href="#hidden-gems">Hidden Gems</a></li>
             </ul>
           </div>
-
           <div class="footer-section">
             <h4>For Businesses</h4>
             <ul>
@@ -227,18 +326,16 @@
               <li><a href="#contact">Get a Website</a></li>
             </ul>
           </div>
-
           <div class="footer-section">
             <h4>Support</h4>
             <ul>
-              <li><a href="#faq">FAQ</a></li>
-              <li><a href="#privacy">Privacy Policy</a></li>
-              <li><a href="#terms">Terms of Service</a></li>
+              <li><a href="#community">I Need Help</a></li>
+              <li><a href="#community">Warm Hubs</a></li>
+              <li><a href="#community">Foodbank</a></li>
               <li><a href="#contact">Contact Us</a></li>
             </ul>
           </div>
         </div>
-
         <div class="footer-bottom">
           <p>&copy; 2024 What's on Merthyr. All rights reserved. Supporting local businesses and community in Merthyr Tydfil.</p>
         </div>
